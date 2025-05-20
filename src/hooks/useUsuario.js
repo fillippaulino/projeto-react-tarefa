@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
@@ -26,7 +26,7 @@ const fazerLogout = async (e) =>{
 e.preventDefault()
 setErro("")
 try {
-    await FaSignOutAlt(auth)
+    await signOut(auth)
     navigate("/")
 } catch (error) {
 setErro("Erro ao fazer logout: ", error)    
